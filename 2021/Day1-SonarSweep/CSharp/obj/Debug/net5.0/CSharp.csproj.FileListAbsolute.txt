@@ -1,0 +1,16 @@
+C:\Users\ThomsonH\Reops\AdventOfCode\Day1-SonarSweep\CSharp\bin\Debug\net5.0\CSharp.exe
+C:\Users\ThomsonH\Reops\AdventOfCode\Day1-SonarSweep\CSharp\bin\Debug\net5.0\CSharp.deps.json
+C:\Users\ThomsonH\Reops\AdventOfCode\Day1-SonarSweep\CSharp\bin\Debug\net5.0\CSharp.runtimeconfig.json
+C:\Users\ThomsonH\Reops\AdventOfCode\Day1-SonarSweep\CSharp\bin\Debug\net5.0\CSharp.runtimeconfig.dev.json
+C:\Users\ThomsonH\Reops\AdventOfCode\Day1-SonarSweep\CSharp\bin\Debug\net5.0\CSharp.dll
+C:\Users\ThomsonH\Reops\AdventOfCode\Day1-SonarSweep\CSharp\bin\Debug\net5.0\ref\CSharp.dll
+C:\Users\ThomsonH\Reops\AdventOfCode\Day1-SonarSweep\CSharp\bin\Debug\net5.0\CSharp.pdb
+C:\Users\ThomsonH\Reops\AdventOfCode\Day1-SonarSweep\CSharp\obj\Debug\net5.0\CSharp.csprojAssemblyReference.cache
+C:\Users\ThomsonH\Reops\AdventOfCode\Day1-SonarSweep\CSharp\obj\Debug\net5.0\CSharp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ThomsonH\Reops\AdventOfCode\Day1-SonarSweep\CSharp\obj\Debug\net5.0\CSharp.AssemblyInfoInputs.cache
+C:\Users\ThomsonH\Reops\AdventOfCode\Day1-SonarSweep\CSharp\obj\Debug\net5.0\CSharp.AssemblyInfo.cs
+C:\Users\ThomsonH\Reops\AdventOfCode\Day1-SonarSweep\CSharp\obj\Debug\net5.0\CSharp.csproj.CoreCompileInputs.cache
+C:\Users\ThomsonH\Reops\AdventOfCode\Day1-SonarSweep\CSharp\obj\Debug\net5.0\CSharp.dll
+C:\Users\ThomsonH\Reops\AdventOfCode\Day1-SonarSweep\CSharp\obj\Debug\net5.0\ref\CSharp.dll
+C:\Users\ThomsonH\Reops\AdventOfCode\Day1-SonarSweep\CSharp\obj\Debug\net5.0\CSharp.pdb
+C:\Users\ThomsonH\Reops\AdventOfCode\Day1-SonarSweep\CSharp\obj\Debug\net5.0\CSharp.genruntimeconfig.cache
