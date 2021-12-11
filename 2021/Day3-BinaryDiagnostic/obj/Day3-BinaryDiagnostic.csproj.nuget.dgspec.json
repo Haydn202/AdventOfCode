@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ThomsonH\\Reops\\AdventOfCode\\2021\\Day3-BinaryDiagnostic\\Day3-BinaryDiagnostic.csproj": {}
+    "C:\\Users\\GGPC\\Documents\\GitHub\\AdventOfCode\\2021\\Day3-BinaryDiagnostic\\Day3-BinaryDiagnostic.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ThomsonH\\Reops\\AdventOfCode\\2021\\Day3-BinaryDiagnostic\\Day3-BinaryDiagnostic.csproj": {
+    "C:\\Users\\GGPC\\Documents\\GitHub\\AdventOfCode\\2021\\Day3-BinaryDiagnostic\\Day3-BinaryDiagnostic.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ThomsonH\\Reops\\AdventOfCode\\2021\\Day3-BinaryDiagnostic\\Day3-BinaryDiagnostic.csproj",
+        "projectUniqueName": "C:\\Users\\GGPC\\Documents\\GitHub\\AdventOfCode\\2021\\Day3-BinaryDiagnostic\\Day3-BinaryDiagnostic.csproj",
         "projectName": "Day3-BinaryDiagnostic",
-        "projectPath": "C:\\Users\\ThomsonH\\Reops\\AdventOfCode\\2021\\Day3-BinaryDiagnostic\\Day3-BinaryDiagnostic.csproj",
-        "packagesPath": "C:\\Users\\ThomsonH\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ThomsonH\\Reops\\AdventOfCode\\2021\\Day3-BinaryDiagnostic\\obj\\",
+        "projectPath": "C:\\Users\\GGPC\\Documents\\GitHub\\AdventOfCode\\2021\\Day3-BinaryDiagnostic\\Day3-BinaryDiagnostic.csproj",
+        "packagesPath": "C:\\Users\\GGPC\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\GGPC\\Documents\\GitHub\\AdventOfCode\\2021\\Day3-BinaryDiagnostic\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ThomsonH\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\GGPC\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +54,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.209\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.200\\RuntimeIdentifierGraph.json"
         }
       }
     }

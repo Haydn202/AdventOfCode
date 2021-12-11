@@ -1,0 +1,16 @@
+C:\Users\GGPC\Documents\GitHub\AdventOfCode\2021\Day3-BinaryDiagnostic\obj\Debug\net5.0\Day3-BinaryDiagnostic.csprojAssemblyReference.cache
+C:\Users\GGPC\Documents\GitHub\AdventOfCode\2021\Day3-BinaryDiagnostic\obj\Debug\net5.0\Day3-BinaryDiagnostic.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\GGPC\Documents\GitHub\AdventOfCode\2021\Day3-BinaryDiagnostic\obj\Debug\net5.0\Day3-BinaryDiagnostic.AssemblyInfoInputs.cache
+C:\Users\GGPC\Documents\GitHub\AdventOfCode\2021\Day3-BinaryDiagnostic\obj\Debug\net5.0\Day3-BinaryDiagnostic.AssemblyInfo.cs
+C:\Users\GGPC\Documents\GitHub\AdventOfCode\2021\Day3-BinaryDiagnostic\obj\Debug\net5.0\Day3-BinaryDiagnostic.csproj.CoreCompileInputs.cache
+C:\Users\GGPC\Documents\GitHub\AdventOfCode\2021\Day3-BinaryDiagnostic\bin\Debug\net5.0\Day3-BinaryDiagnostic.exe
+C:\Users\GGPC\Documents\GitHub\AdventOfCode\2021\Day3-BinaryDiagnostic\bin\Debug\net5.0\Day3-BinaryDiagnostic.deps.json
+C:\Users\GGPC\Documents\GitHub\AdventOfCode\2021\Day3-BinaryDiagnostic\bin\Debug\net5.0\Day3-BinaryDiagnostic.runtimeconfig.json
+C:\Users\GGPC\Documents\GitHub\AdventOfCode\2021\Day3-BinaryDiagnostic\bin\Debug\net5.0\Day3-BinaryDiagnostic.runtimeconfig.dev.json
+C:\Users\GGPC\Documents\GitHub\AdventOfCode\2021\Day3-BinaryDiagnostic\bin\Debug\net5.0\Day3-BinaryDiagnostic.dll
+C:\Users\GGPC\Documents\GitHub\AdventOfCode\2021\Day3-BinaryDiagnostic\bin\Debug\net5.0\ref\Day3-BinaryDiagnostic.dll
+C:\Users\GGPC\Documents\GitHub\AdventOfCode\2021\Day3-BinaryDiagnostic\bin\Debug\net5.0\Day3-BinaryDiagnostic.pdb
+C:\Users\GGPC\Documents\GitHub\AdventOfCode\2021\Day3-BinaryDiagnostic\obj\Debug\net5.0\Day3-BinaryDiagnostic.dll
+C:\Users\GGPC\Documents\GitHub\AdventOfCode\2021\Day3-BinaryDiagnostic\obj\Debug\net5.0\ref\Day3-BinaryDiagnostic.dll
+C:\Users\GGPC\Documents\GitHub\AdventOfCode\2021\Day3-BinaryDiagnostic\obj\Debug\net5.0\Day3-BinaryDiagnostic.pdb
+C:\Users\GGPC\Documents\GitHub\AdventOfCode\2021\Day3-BinaryDiagnostic\obj\Debug\net5.0\Day3-BinaryDiagnostic.genruntimeconfig.cache
