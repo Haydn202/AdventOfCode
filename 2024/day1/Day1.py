@@ -1,21 +1,16 @@
-# read file data into 2 lists.
-
 def read_columns_into_lists(filename):
     left_list = []
     right_list = []
     with open(filename, 'r') as file:
         for line in file:
-            # Split the line into two parts based on whitespace
             left, right = map(int, line.split())
             left_list.append(left)
             right_list.append(right)
     return left_list, right_list
 
-# Sort those lists smallest to largest.
 def sort_list(list):
   return list.sort()
 
-# calculate and sum differences.
 def calculate_dif(left, right):
   total = 0
   
@@ -25,7 +20,7 @@ def calculate_dif(left, right):
       total += diff
     else:
       total += 0 - diff
-      
+    
   return total
 
 def create_dictionary(list):
