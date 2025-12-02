@@ -9,21 +9,20 @@ import (
 )
 
 func main() {
-	PositionCount := 0
 	dial := Dial{
 		CurrentPosition: 50,
-		MaxPosition: 99,
-		MinPosition: 0,
+		MaxPosition:     99,
+		MinPosition:     0,
 	}
 
 	instructions := readFile("data.txt")
 
 	for _, instruction := range instructions {
-		count := dial.TurnWithZeroCount(instruction.Direction, instruction.Steps)
-		PositionCount += count
+		dial.Turn(instruction.Direction, instruction.Steps)
 	}
 
-	fmt.Println(PositionCount)
+	fmt.Println(dial.FinishedOnZeroCount)
+	fmt.Println(dial.PassedZeroCount)
 }
 
 func readFile(filename string) []Instruction {
@@ -35,6 +34,10 @@ func readFile(filename string) []Instruction {
 	instructions := []Instruction{}
 
 	for _, line := range strings.Split(string(content), "\n") {
+		line = strings.TrimSpace(line)
+		if line == "" {
+			continue
+		}
 		direction := line[0:1]
 		steps, err := strconv.Atoi(line[1:])
 		if err != nil {
@@ -43,7 +46,7 @@ func readFile(filename string) []Instruction {
 
 		instructions = append(instructions, Instruction{
 			Direction: direction,
-			Steps: steps,
+			Steps:     steps,
 		})
 	}
 
@@ -52,13 +55,15 @@ func readFile(filename string) []Instruction {
 
 type Instruction struct {
 	Direction string
-	Steps int
+	Steps     int
 }
 
 type Dial struct {
-	CurrentPosition int
-	MaxPosition int
-	MinPosition int
+	CurrentPosition     int
+	MaxPosition         int
+	MinPosition         int
+	FinishedOnZeroCount int
+	PassedZeroCount     int
 }
 
 func (d *Dial) Turn(direction string, steps int) int {
@@ -75,20 +80,15 @@ func (d *Dial) Turn(direction string, steps int) int {
 		} else if d.CurrentPosition < d.MinPosition {
 			d.CurrentPosition = d.MaxPosition
 		}
-	}
 
-	return d.CurrentPosition
-}
-
-func (d *Dial) TurnWithZeroCount(direction string, steps int) int {
-	zeroCount := 0
-
-	for i := 0; i < steps; i++ {
-		newPosition := d.Turn(direction, 1)
-		if newPosition == 0 {
-			zeroCount++
+		if d.CurrentPosition == 0 {
+			d.PassedZeroCount++
 		}
 	}
 
-	return zeroCount
+	if d.CurrentPosition == 0 {
+		d.FinishedOnZeroCount++
+	}
+
+	return d.CurrentPosition
 }
