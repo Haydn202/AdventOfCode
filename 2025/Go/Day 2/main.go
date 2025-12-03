@@ -18,14 +18,65 @@ func sumInvalid(ranges []Range) int {
 	sum := 0
 
 	for _, r := range ranges {
-		for i := r.bottom; i <= r.top; i++ {
-			if isInvalidPart2(i) {
-				sum += i
+		sum += sumInvalidInRange(r)
+	}
+
+	return sum
+}
+
+func sumInvalidInRange(r Range) int {
+	sum := 0
+	invalidSet := make(map[int]bool)
+
+	minDigits := len(strconv.Itoa(r.bottom))
+	maxDigits := len(strconv.Itoa(r.top))
+
+	for digitCount := minDigits; digitCount <= maxDigits; digitCount++ {
+		for patternLen := 1; patternLen <= digitCount/2; patternLen++ {
+			if digitCount%patternLen != 0 {
+				continue
+			}
+
+			repeats := digitCount / patternLen
+			if repeats < 2 {
+				continue
+			}
+
+			minPattern := pow10(patternLen - 1)
+			maxPattern := pow10(patternLen) - 1
+
+			for pattern := minPattern; pattern <= maxPattern; pattern++ {
+				patternStr := strconv.Itoa(pattern)
+				invalidID := buildRepeatingNumber(patternStr, repeats)
+
+				if invalidID >= r.bottom && invalidID <= r.top {
+					if !invalidSet[invalidID] {
+						invalidSet[invalidID] = true
+						sum += invalidID
+					}
+				}
 			}
 		}
 	}
 
 	return sum
+}
+
+func buildRepeatingNumber(pattern string, repeats int) int {
+	var builder strings.Builder
+	for i := 0; i < repeats; i++ {
+		builder.WriteString(pattern)
+	}
+	result, _ := strconv.Atoi(builder.String())
+	return result
+}
+
+func pow10(n int) int {
+	result := 1
+	for i := 0; i < n; i++ {
+		result *= 10
+	}
+	return result
 }
 
 func isInvalidPart1(num int) bool {
