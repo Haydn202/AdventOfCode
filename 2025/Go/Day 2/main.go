@@ -30,19 +30,53 @@ func getInvalid(ranges []Range) []int {
 	for _, values := range ranges {
 		for i := values.bottom; i <= values.top; i++  {
 			stringIndex := strconv.Itoa(i)
-			if (len(stringIndex) % 2 == 0) {
-				num1 := stringIndex[0:(len(stringIndex) / 2)]
-				num2 := stringIndex[(len(stringIndex) / 2):]
-
-				if num1 == num2 {
-					invalidIds = append(invalidIds, i)
-				}
+			if hasCommonDivisor(stringIndex) {
+			// if hasARepeat(stringIndex) {
+				invalidIds = append(invalidIds, i)
 			}
 		}
 	} 
 
 	return invalidIds
 }
+
+func hasARepeat(value string) bool {
+	if (len(value) % 2 == 0) {
+		num1 := value[0:(len(value) / 2)]
+		num2 := value[(len(value) / 2):]
+
+		if num1 == num2 {
+			return true
+		}
+	}
+
+	return false
+}
+
+func hasCommonDivisor(value string) bool {
+	hasDivisor := false
+
+	for i := 0; i < len(value) - 1; i++ {
+		section1 := value[0: i + 1]
+		section2 := value
+
+		hasDivisor = checkForDivisor(section1, section2)
+
+		if hasDivisor {
+			break
+		}
+	}
+
+	return hasDivisor
+}
+
+func checkForDivisor (string1 string, string2 string) bool {
+	if string1 + string2 != string2 + string1 {
+		return false
+	}
+
+	return true
+} 
 
 func readData(filename string) []Range {
 	content, err := os.ReadFile(filename)
