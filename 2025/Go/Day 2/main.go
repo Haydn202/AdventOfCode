@@ -10,42 +10,54 @@ import (
 
 func main() {
 	ranges := readData("data.txt")
-	invalid := getInvalid(ranges)
-	result := sumArray(invalid)
-	
+	result := sumInvalid(ranges)
 	fmt.Println(result)
 }
 
-func sumArray(numbers []int) int {
-    result := 0
-    for _, num := range numbers {
-        result += num
-    }
-    return result
-}
+func sumInvalid(ranges []Range) int {
+	sum := 0
 
-func getInvalid(ranges []Range) []int {
-	invalidIds := []int{}
-
-	for _, values := range ranges {
-		for i := values.bottom; i <= values.top; i++  {
-			stringIndex := strconv.Itoa(i)
-			if hasCommonDivisor(stringIndex) {
-			// if hasARepeat(stringIndex) {
-				invalidIds = append(invalidIds, i)
+	for _, r := range ranges {
+		for i := r.bottom; i <= r.top; i++ {
+			if isInvalidPart2(i) {
+				sum += i
 			}
 		}
-	} 
+	}
 
-	return invalidIds
+	return sum
 }
 
-func hasARepeat(value string) bool {
-	if (len(value) % 2 == 0) {
-		num1 := value[0:(len(value) / 2)]
-		num2 := value[(len(value) / 2):]
+func isInvalidPart1(num int) bool {
+	s := strconv.Itoa(num)
+	n := len(s)
 
-		if num1 == num2 {
+	if n%2 != 0 {
+		return false
+	}
+
+	half := n / 2
+	firstHalf := s[:half]
+	secondHalf := s[half:]
+
+	return firstHalf == secondHalf
+}
+
+func isInvalidPart2(num int) bool {
+	s := strconv.Itoa(num)
+	n := len(s)
+
+	for i := 0; i < n/2; i++ {
+		patternLen := i + 1
+
+		if n%patternLen != 0 {
+			continue
+		}
+
+		section1 := s[0:patternLen]
+		section2 := s
+
+		if checkForDivisor(section1, section2) {
 			return true
 		}
 	}
@@ -53,30 +65,9 @@ func hasARepeat(value string) bool {
 	return false
 }
 
-func hasCommonDivisor(value string) bool {
-	hasDivisor := false
-
-	for i := 0; i < len(value) - 1; i++ {
-		section1 := value[0: i + 1]
-		section2 := value
-
-		hasDivisor = checkForDivisor(section1, section2)
-
-		if hasDivisor {
-			break
-		}
-	}
-
-	return hasDivisor
+func checkForDivisor(string1 string, string2 string) bool {
+	return string1+string2 == string2+string1
 }
-
-func checkForDivisor (string1 string, string2 string) bool {
-	if string1 + string2 != string2 + string1 {
-		return false
-	}
-
-	return true
-} 
 
 func readData(filename string) []Range {
 	content, err := os.ReadFile(filename)
@@ -93,16 +84,21 @@ func readData(filename string) []Range {
 func formatData(content string) []Range {
 	idRanges := []Range{}
 
+	content = strings.TrimSpace(content)
 	rangeStrings := strings.Split(content, ",")
 
 	for _, r := range rangeStrings {
+		r = strings.TrimSpace(r)
+		if r == "" {
+			continue
+		}
 		values := strings.Split(r, "-")
 
-		bottom, err := strconv.Atoi(values[0])
+		bottom, err := strconv.Atoi(strings.TrimSpace(values[0]))
 		if err != nil {
 			log.Fatal(err)
 		}
-		top, err := strconv.Atoi(values[1])
+		top, err := strconv.Atoi(strings.TrimSpace(values[1]))
 		if err != nil {
 			log.Fatal(err)
 		}
