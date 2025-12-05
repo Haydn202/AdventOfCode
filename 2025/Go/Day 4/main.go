@@ -10,12 +10,18 @@ import (
 func main() {
 	grid := readData("data.txt")
 
-	count := grid.getCountOfItemsWithLessThanXNeighbors(4)
-	println(count)
+	for {
+		count := grid.getCountOfItemsWithLessThanXNeighbors(4)
+		if count == 0 {
+			break
+		}
+	}
+	println(grid.removed)
 }
 
 type Grid struct {
 	items [][]bool
+	removed int
 }
 
 func (g *Grid) getCountOfItemsWithLessThanXNeighbors(count int) int {
@@ -25,6 +31,8 @@ func (g *Grid) getCountOfItemsWithLessThanXNeighbors(count int) int {
 			if g.items[i][j] {
 				if g.getNeighborCount(i, j) < count {
 					hasEnough++
+					g.items[i][j] = false
+					g.removed++
 				}
 			}
 		}
@@ -66,6 +74,7 @@ func (g *Grid) Print() {
 func readData(filename string) Grid {
 	grid := Grid{
 		items: [][]bool{},
+		removed: 0,
 	}
 
 	content, err := os.ReadFile(filename)
