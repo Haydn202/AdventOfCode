@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	problems := readData("data.txt")
+	problems := readDataVertical("data.txt")
 	total := 0
 
 	for _, problem := range problems {
@@ -144,6 +144,87 @@ func readData(filename string) []MathsProblem {
 				Nums:      nums,
 			})
 		}
+	}
+
+	return problems
+}
+
+func readDataVertical(filename string) []MathsProblem {
+	content, err := os.ReadFile(filename)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	lines := strings.Split(string(content), "\n")
+	chars := [][]byte{}
+	for _, line := range lines {
+		line = strings.TrimRight(line, "\r")
+		if strings.TrimSpace(line) != "" {
+			chars = append(chars, []byte(line))
+		}
+	}
+
+	if len(chars) == 0 {
+		return []MathsProblem{}
+	}
+
+	NN := len(chars)
+	MM := len(chars[NN-1])
+
+	for i := 0; i < NN-1; i++ {
+		for len(chars[i]) < MM {
+			chars[i] = append(chars[i], ' ')
+		}
+	}
+
+	problems := []MathsProblem{}
+	j := 0
+
+	for j < MM {
+		left := j
+
+		for (j+1 < MM && chars[NN-1][j+1] == ' ') || j+1 == MM {
+			j++
+		}
+
+		right := j
+
+		nums := []Num{}
+		for col := left; col < right; col++ {
+			numStr := ""
+			for row := 0; row < NN-1; row++ {
+				if col < len(chars[row]) && chars[row][col] != ' ' {
+					numStr += string(chars[row][col])
+				}
+			}
+			if numStr != "" {
+				number, _ := strconv.Atoi(numStr)
+				spaces := 0
+				for i := 0; i < left && i < len(chars[0]) && chars[0][i] == ' '; i++ {
+					spaces++
+				}
+				nums = append(nums, Num{SpaceCount: spaces, Number: number})
+			}
+		}
+
+		if len(nums) > 0 && left < len(chars[NN-1]) {
+			opChar := chars[NN-1][left]
+			var op Operation
+			if opChar == '+' {
+				op = Addition
+			} else if opChar == '*' {
+				op = Multiplication
+			} else {
+				op = Addition
+			}
+			problems = append(problems, MathsProblem{Operation: op, Nums: nums})
+		}
+
+		j = right + 1
+	}
+
+	for i, j := 0, len(problems)-1; i < j; i, j = i+1, j-1 {
+		problems[i], problems[j] = problems[j], problems[i]
 	}
 
 	return problems
